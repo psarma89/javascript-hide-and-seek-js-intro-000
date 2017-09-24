@@ -19,5 +19,5 @@ function deepestChild(){
   while (node.firstChild !== null) {
     node = node.firstChild
   }
-  return node
+  return node.parentNode
 }
