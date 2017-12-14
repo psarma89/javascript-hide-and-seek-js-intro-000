@@ -3,21 +3,17 @@ function getFirstSelector(selector){
 }
 
 function nestedTarget(){
-  return document.querySelector('#nested .target')
-}
-
-function increaseRankBy(n){
-  const list = document.querySelectorAll('.ranked-list')
-  for (var i = 0; i < list.length; i++) {
-    list[i].innerHTML = (parseInt(list[i].innerHTML)+n).toString()
-  }
+  return document.getElementById('nested').getElementsByClassName('target')[0]
 }
 
 function deepestChild(){
-  var node = document.querySelector('#grand-node')
+  const div = document.getElementById('grand-node');
+  return div.querySelectorAll('div')[div.querySelectorAll('div').length -1]
+}
 
-  while (node.children[0]) {
-    node = node.children[0]
+function increaseRankBy(n){
+  const lis = document.querySelectorAll('ul.ranked-list li');
+  for(const li of lis){
+    li.innerHTML = String(parseInt(li.innerHTML) +n)
   }
-  return node
 }
